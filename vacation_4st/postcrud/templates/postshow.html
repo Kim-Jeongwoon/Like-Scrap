@@ -1,0 +1,17 @@
+<h4><a href="{% url 'list' %}">뒤로가기</a></h4>
+<div style="width:200px; height:200px; position:absolute; left:650px; top:100px; text-align:center; border:1px solid; border-radius:5px; background-color:lightgrey">
+    <h3>< {{ post.title }} ></h3>
+    <h5>{{ post.content }}</h5>
+    <br>
+    {% if like %}
+        <a href = "{% url 'like' post.id %}">🖤</a>
+    {% else %}
+        <a href="{% url 'like' post.id %}">🤍</a>
+    {% endif %}
+
+    {% if scrap %}
+        &nbsp;&nbsp;<a href = "{% url 'scrap' post.id %}">📁❌</a>
+    {% else %}
+        &nbsp;&nbsp;<a href="{% url 'scrap' post.id %}">📁</a>
+    {% endif %}
+</div>
